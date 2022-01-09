@@ -1,27 +1,9 @@
-# PruebaTecnicaTresIt
+# Prueba Tecnica 3IT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.0.
+Prueba realizada utilizando Angular version 11.0.0, Bootstrap version 4.6.1, ngx-echarts version 7.1.0 para el grafico y ngx-pagination version 5.1.1 para la paginacion de tablas.
 
-## Development server
+## ¿Como montar y ver el projecto?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> - Clona el repositorio utilizando el comando 'git clone url del repositorio'
+> - Ingresa a la carpeta e instala las dependencias con el comando 'npm install'
+> - Para finalizar utiliza el comando ng serve para crear un servidor de desarrollo y luego ingresa a <http://localhost:4200/>
