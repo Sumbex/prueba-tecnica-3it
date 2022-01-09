@@ -1,0 +1,21 @@
+<div class="container-fluid my-2">
+    <div class="row mx-auto" *ngIf="loading;else tablaIndicador">
+        <div class="col-12 col-lg-12 col-md-12">
+            <app-loading></app-loading>
+        </div>
+    </div>
+    <ng-template #tablaIndicador>
+        <div class="card">
+            <div class="card-header card-header-blue">
+                <h2 class="card-title text-center text-white my-auto">Indicadores Economicos</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <app-tabla-indicadores [indicadores]="indicadores"></app-tabla-indicadores>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

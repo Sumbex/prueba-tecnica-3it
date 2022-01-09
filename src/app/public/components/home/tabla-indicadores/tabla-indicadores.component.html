@@ -1,0 +1,64 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead class="table-dark text-white text-center">
+            <tr>
+                <th class="d-none d-sm-table-cell">Indicador</th>
+                <th class="d-none d-sm-table-cell">Unidad</th>
+                <th class="d-none d-sm-table-cell">Fecha</th>
+                <th class="d-none d-sm-table-cell">Valor</th>
+                <th class="d-none d-sm-table-cell"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let indicador of indicadores">
+                <td class="d-md-none align-middle" [routerLink]="['/indicador',indicador.codigo]">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2> {{indicador.nombre}}</h2>
+                        </div>
+                        <div class="col-12">
+                            <h3 class="text-primary">{{indicador.unidad_medida}}</h3>
+                        </div>
+                    </div>
+                </td>
+                <td class="d-none d-sm-table-cell align-middle text-center">
+                    <h2>{{indicador.nombre}}</h2>
+                </td>
+                <td class="d-none d-sm-table-cell align-middle text-center">
+                    <h2>{{indicador.unidad_medida}}</h2>
+                </td>
+                <td class="d-none d-sm-table-cell align-middle text-center">
+                    <h2>{{indicador.fecha | date:'dd/MM/yyyy'}}</h2>
+                </td>
+                <td class="d-none d-sm-table-cell align-middle text-center">
+                    <h2 [ngSwitch]="indicador.unidad_medida">
+                        <span *ngSwitchCase="'Porcentaje'">{{indicador.valor}}%
+                        </span>
+                        <span *ngSwitchCase="'Pesos'">${{indicador.valor}}
+                        </span>
+                        <span *ngSwitchCase="'Dólar'">{{indicador.valor |
+                            currency:"USD":"symbol"}}
+                        </span>
+                        <span *ngSwitchDefault>{{indicador.valor}}
+                        </span>
+                    </h2>
+                </td>
+                <td class="align-middle">
+                    <div class="row">
+                        <div class="col-6">
+                            <span data-toggle="tooltip" data-placement="top" title="Ver el detalle del indicador">
+                                <i class="fas fa-exclamation-circle fa-2x d-md-none text-info" data-toggle="modal"
+                                    data-target="#indicadorModal" (click)="detalleIndicador(indicador)"></i>
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <a [routerLink]="['/indicador',indicador.codigo]" data-toggle="tooltip" data-placement="top"
+                                title="Ver valores"><i class="fas fa-chevron-right fa-2x text-primary"></i></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-modal-indicador [detalleIndicador]="indicador"></app-modal-indicador>

@@ -1,0 +1,8 @@
+.paginador {
+  display: flex;
+  justify-content: center;
+}
+
+.paginador /deep/ .ngx-pagination .current {
+  background: #182d4f;
+}

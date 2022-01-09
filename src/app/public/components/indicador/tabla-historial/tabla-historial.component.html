@@ -1,0 +1,30 @@
+<div class="table-responsive">
+    <table class="table text-center">
+        <thead class="table-dark text-white">
+            <tr>
+                <th>Fecha</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let indicador of historial?.serie |  paginate: { itemsPerPage: 6, currentPage: page}">
+                <td>
+                    <h2>{{indicador?.fecha | date:'dd/MM/yyyy'}}</h2>
+                </td>
+                <td>
+                    <h2 [ngSwitch]="historial.unidad_medida">
+                        <span *ngSwitchCase="'Porcentaje'">{{indicador.valor}}%
+                        </span>
+                        <span *ngSwitchCase="'Pesos'">${{indicador.valor}}
+                        </span>
+                        <span *ngSwitchCase="'Dólar'">{{indicador.valor |
+                            currency:"USD":"symbol"}}
+                        </span>
+                        <span *ngSwitchDefault>{{indicador.valor}}
+                        </span>
+                    </h2>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

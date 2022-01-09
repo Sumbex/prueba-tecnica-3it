@@ -1,0 +1,36 @@
+<div class="container-fluid my-2">
+    <div class="row mx-auto" *ngIf="loading;else contenido">
+        <div class="col-12 col-lg-12 col-md-12">
+            <app-loading></app-loading>
+        </div>
+    </div>
+    <ng-template #contenido>
+        <div class="card">
+            <div class="card-header card-header-blue">
+                <div class="row mx-auto">
+                    <div class="col-2 col-lg-1 col-md-1 my-auto">
+                        <i class="fas fa-chevron-circle-left fa-2x text-white pointer" routerLink="/"
+                            data-toggle="tooltip" data-placement="top" title="Volver"></i>
+                    </div>
+                    <div class="col-10 col-lg-11 col-md-11">
+                        <h2 class="card-title text-center text-white my-auto">{{indicador?.nombre}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-9 col-md-8 mt-1">
+                        <div echarts [options]="lineChart"></div>
+                    </div>
+                    <div class="col-12 col-lg-3 col-md-4 mt-1">
+                        <app-tabla-historial [historial]="indicador" [page]="p"></app-tabla-historial>
+                    </div>
+                    <div class="col-12 col-lg-12 col-md-12 mt-4">
+                        <pagination-controls class="paginador" (pageChange)="p = $event" previousLabel="Anterior"
+                            nextLabel="Siguiente"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
